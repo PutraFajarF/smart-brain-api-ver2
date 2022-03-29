@@ -2,8 +2,6 @@ const express = require('express');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
-const { response } = require('express');
-const res = require('express/lib/response');
 
 const register = require('./controllers/register');
 const signin = require('./controllers/signin');
@@ -20,11 +18,6 @@ const db = knex({
     database : 'smart-brain'
   }
 });
-
-db.select('*').from('users').then(data => {
-  console.log(data);
-});
-
 
 const app = express();
 
